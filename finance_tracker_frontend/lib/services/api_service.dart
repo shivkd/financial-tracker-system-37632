@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -22,7 +23,7 @@ class ApiService {
       }
       return null;
     } catch (e) {
-      print('Login error: $e');
+      debugPrint('Login error: $e');
       return null;
     }
   }
@@ -40,7 +41,7 @@ class ApiService {
       );
       return response.statusCode == 200;
     } catch (e) {
-      print('Registration error: $e');
+      debugPrint('Registration error: $e');
       return false;
     }
   }
@@ -72,7 +73,7 @@ class ApiService {
       );
       return response.statusCode == 200;
     } catch (e) {
-      print('Add transaction error: $e');
+      debugPrint('Add transaction error: $e');
       return false;
     }
   }
@@ -105,7 +106,7 @@ class ApiService {
       );
       return response.statusCode == 200;
     } catch (e) {
-      print('Edit transaction error: $e');
+      debugPrint('Edit transaction error: $e');
       return false;
     }
   }
@@ -132,7 +133,7 @@ class ApiService {
       );
       return response.statusCode == 200;
     } catch (e) {
-      print('Add budget error: $e');
+      debugPrint('Add budget error: $e');
       return false;
     }
   }
@@ -160,7 +161,7 @@ class ApiService {
       );
       return response.statusCode == 200;
     } catch (e) {
-      print('Edit budget error: $e');
+      debugPrint('Edit budget error: $e');
       return false;
     }
   }
