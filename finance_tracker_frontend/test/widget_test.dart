@@ -3,11 +3,16 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:finance_tracker_frontend/main.dart';
 
 void main() {
-  testWidgets('FinanceTrackerApp can launch & contain root session widget', (WidgetTester tester) async {
-    await tester.pumpWidget(const FinanceTrackerApp());
+  testWidgets('App generation message displayed', (WidgetTester tester) async {
+    await tester.pumpWidget(const MyApp());
 
-    expect(find.byType(FinanceTrackerApp), findsOneWidget);
-    // The app starts with RootSessionGate, so check for some widget characteristic to confirm load
-    expect(find.byType(MaterialApp), findsOneWidget);
+    expect(find.text('finance_tracker_frontend App is being generated...'), findsOneWidget);
+    expect(find.byType(CircularProgressIndicator), findsOneWidget);
+  });
+
+  testWidgets('App bar has correct title', (WidgetTester tester) async {
+    await tester.pumpWidget(const MyApp());
+
+    expect(find.text('finance_tracker_frontend'), findsOneWidget);
   });
 }
